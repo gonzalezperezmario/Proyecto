@@ -20,7 +20,19 @@
     }
 */
 db.procesadores.insertMany([
-    { Nombre:"Core 2 Quad Q9400", Gama: "Escritorio", Ram_Spt:[4, 8, 12], Frecuencia: 2660, Componentes_adecuados:{Gráfica:"GTX 950", Fuente: 300, Placa: "LGA 775", RAM: 8, Precio: 200}, Fecha: new Date("2006-1-1"), Capacidad_Overclock:true},
+    { Nombre:"Core 2 Quad Q9400", 
+        Gama: "Escritorio", 
+        Ram_Spt:[4, 8, 12], 
+        Frecuencia: 2660, 
+        Componentes_adecuados:
+            {Gráfica:"GTX 950", 
+            Fuente: 300, 
+            Placa: "LGA 775", 
+            RAM: 8, 
+            Precio: 200}, 
+        Fecha: new Date("2006-1-1"), 
+        Capacidad_Overclock:true},
+
     { Nombre:"Ryzen 5 3400G", Gama: "Escritorio", Ram_Spt:[16, 32, 64],Frecuencia: 3400, Componentes_adecuados:{Gráfica:"Rx 570", Fuente: 450, Placa: "AM4", RAM: 12, Precio: 500}, Fecha: new Date("2019-1-1"), Capacidad_Overclock:true},
     { Nombre:"i7-8550U", Gama: "Portátil", Ram_Spt:[16, 32, 64], Frecuencia: 1800, Componentes_adecuados:{Gráfica:"GTX 1660ti", Fuente:300, Placa: "LGA 1151", RAM: 8, Precio: 650}, Fecha: new Date("2017-1-1"), Capacidad_Overclock:null},
     { Nombre:"i5-9400f", Gama:"Escritorio", Ram_Spt:[16, 32, 64], Frecuencia: 2900, Componentes_adecuados:{Gráfica:"RTX 2060", Fuente: 550, Placa: "LGA 1151", RAM: 16, Precio: 650}, Fecha: new Date("2018-1-1"), Capacidad_Overclock:false},
