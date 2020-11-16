@@ -9,7 +9,7 @@
         Ram_Spt: array (Gigabytes de Ram que soporta)
         Frecuencia: int (Frecuencia base en Megahercios ) 
         Componentes: objeto:{
-            Tarjeta Gráfica: string (Nombre de la tarjeta gráfica)
+            Gráfica: string (Nombre de la tarjeta gráfica)
             Fuente: int (Cantidad de Watts requeridos para el sistema)
             Placa: string (Socket de la placa base compatible para el procesador)
             RAM: int (Cantidad de RAM)
