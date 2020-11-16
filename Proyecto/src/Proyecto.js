@@ -62,7 +62,9 @@ db.procesadores.insertMany([
         {Frecuencia:{$gte:2500}},
         {Fecha: {$gte: new Date("2011-1-1")}},
         {Capacidad_Overclock:false},
-        {'Componentes_adecuados.Precio':{$lte:800}}]}).pretty()
+        {'Componentes_adecuados.Precio':{$lte:800}}
+    ]
+                         }).pretty()
  
 /* Filtra los procesadores cuyo Nombre contenga una "i"minúscula, su gama no sea de servidor, que sea capaz de aumentar su frecuencia reloj, su frecuencia sea mayor o igual a 2000Mhz y además que la cantidad de Ram sea mayor a 8 (Debido al $and muestra los documentos que cumplan TODAS las condiciones implantadas)*/
     db.procesadores.find({$and: [
@@ -70,7 +72,9 @@ db.procesadores.insertMany([
         {Gama:{$ne: "Servidor"}},
         {Capacidad_Overclock:true},
         {Frecuencia: {$gte:2000}},
-        {'Componentes_adecuados.RAM': {$gt:8}}]}).pretty()
+        {'Componentes_adecuados.RAM': {$gt:8}}
+    ]
+                         }).pretty()
  
 /* Filtra los procesadores que soporten 4, 8, y 16 Gbs, una frecuencia menor a 4200, posean una fuente que no cumpla la coindición de ser menor o igual a 300 Watts, que la Ram instalada no sea 4, que su precio sea menor o igual a 600, que su fecha de salida sea anterior a 2019, y además que sea capaz de aumentar su frecuencia reloj (Debido al $and muestra los documentos que cumplan TODAS las condiciones implantadas)*/
     db.procesadores.find({$and: [
@@ -80,34 +84,44 @@ db.procesadores.insertMany([
         {'Componentes_adecuados.RAM':{$ne:4}},
         {'Componentes_adecuados.Precio':{$lte:600}},
         {Fecha: {$lte:new Date("2019, 01, 01")}},
-        {Capacidad_Overclock:true}]}).pretty()
+        {Capacidad_Overclock:true}
+    ]
+                         }).pretty()
  
  /*Filtra los procesadores que o bien su fecha de salida sea anterior al 2010 o que el precio sea menor o igual a 200 euros o que la Ram soportada sea de 2 y 4 o que el nombre de la gráfica contenga las letras "GT" sin importar las mayúsculas debido al operador $options:"i" (Debido al $or, la consulta muestra los documentos que cumplan al menos una de las coindiciones) */
     db.procesadores.find({$or: [
         {Fecha:{$lt:("2010-01-01")}},
         {'Componentes_adecuados.Precio':{$lte:200}},
         {Ram_Spt:{$in: [2, 4]}},
-        {'Componentes_adecuados.Gráfica': {$regex: '.*GT' , $options:"i" }}]}).pretty()
+        {'Componentes_adecuados.Gráfica': {$regex: '.*GT' , $options:"i" }}
+    ]
+                         }).pretty()
 
 /*Filtra los procesadores que no cumpla al menos una de las siguientes condiciones debidoa al operador $nor, las condiciones son que su precio sea mayor aa 2000, que no se pueda overclockear, que su gama sea de servidor y que su placa sea del Socket 1151*/
     db.procesadores.find({$nor:[
         {'Componentes_adecuados.Precio':{$gt:2000}},
         {Capacidad_Overclock:false},
         {Gama: {$eq: "Servidor"}},
-        {'Componentes_adecuados.Placa': "LGA 1151"}]}).pretty()
+        {'Componentes_adecuados.Placa': "LGA 1151"}
+    ]
+                         }).pretty()
 
 /*Filtra los procesadores cuya frecuencia sea mayor a 2000Mhz, la ram soportada NO sea 2 y 4, la fuente sea de menos de 700 Watts y que su frecuencia reloj se pueda aumentar (Debido al $and muestra los documentos que cumplan TODAS las condiciones implantadas)*/
     db.procesadores.find({$and: [
         {Frecuencia: {$gt: 2000}},
         {Ram_Spt: {$nin: [2, 4]} },
         {'Componentes_adecuados.Fuente': {$lt:700}},
-        {Capacidad_Overclock:true}]}).pretty()
+        {Capacidad_Overclock:true}
+    ]
+                         }).pretty()
  
 /* La función del operador ".count()"en este caso es la de contar los documentos que cumplan las coindicoines de pertenecer a la gama "Escritorio, su fecha de salida sea posterior a 2011 y que su precio sea menor a 1000 euros. (En este caso el resultado es 6) */
     db.procesadores.find({$and: [
         {Gama: "Escritorio"}, 
         {Fecha:{$gte: new Date("2011-1-1")}},
-        {'Componentes_adecuados.Precio':{$lt:1000}}]})
+        {'Componentes_adecuados.Precio':{$lt:1000}}
+    ]
+                         })
         .count()
 
 /*Filtra los procesadores que tengan tres campos en el apartado de Ram soportada, que no sea de la gama servidor, que su frecuencia reloj se pueda aumentar y que tenga mas de 4gb de RAM (Debido al $and muestra los documentos que cumplan TODAS las condiciones implantadas)*/
@@ -115,6 +129,8 @@ db.procesadores.insertMany([
         {Ram_Spt:{$size:3}},
         {Gama:{$ne:"Servidor"}},
         {Capacidad_Overclock:true},
-        {'Componentes_adecuados.RAM':{$gt:4}}]}).pretty()
+        {'Componentes_adecuados.RAM':{$gt:4}}
+    ]
+                         }).pretty()
 
 /* Adjunto en la carpeta doc unas capturas del resultado de las consultas además de un pdf explicando el proyecto a profundidad y todos los operadores utilizados*/
