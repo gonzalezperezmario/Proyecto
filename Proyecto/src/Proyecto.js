@@ -65,7 +65,7 @@ db.procesadores.insertMany([
 /* La función del operador ".count()"en este caso es la de contar los documentos que cumplan las coindicoines de pertenecer a la gama "Escritorio, su fecha de salida sea posterior a 2011 y que su precio sea menor a 1000 euros. (En este caso el resultado es 6) */
     db.procesadores.find({$and: [{Gama: "Escritorio"}, {Fecha:{$gte: new Date("2011-1-1")}},{'Componentes_adecuados.Precio':{$lt:1000}}]}).count()
 
-/*Filtra los procesadores que tengan tres campos en el apartado de Ram soprtada, que no sea de la gama servidor, que su frecuencia reloj se pueda aumentar y que tenga mas de 4gb de RAM (Debido al $and muestra los documentos que cumplan TODAS las condiciones implantadas)*/
-
+/*Filtra los procesadores que tengan tres campos en el apartado de Ram soportada, que no sea de la gama servidor, que su frecuencia reloj se pueda aumentar y que tenga mas de 4gb de RAM (Debido al $and muestra los documentos que cumplan TODAS las condiciones implantadas)*/
+    db.procesadores.find({$and:[{Ram_Spt:{$size:3}},{Gama:{$ne:"Servidor"}},{Capacidad_Overclock:true},{'Componentes_adecuados.RAM':{$gt:4}}]})
 
 /* Adjunto en la carpeta doc unas capturas del resultado de las consultas además de un pdf explicando el proyecto a profundidad y todos los operadores utilizados*/
